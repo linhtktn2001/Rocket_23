@@ -1,79 +1,81 @@
-DROP DATABASE if exists Testing_System_Assignment_1;
+
+-- Tao database
+DROP DATABASE IF EXISTS Testing_System_Assignment_1;
 CREATE DATABASE Testing_System_Assignment_1;
-use Testing_System_Assignment_1;
+USE Testing_System_Assignment_1;
 
-create table `Department`(
-	DepartmentID int primary key auto_increment,
-    DepartmentName char(30)
+CREATE TABLE `Department` (
+    DepartmentID 	INT PRIMARY KEY AUTO_INCREMENT,
+    DepartmentName 	CHAR(30)
 );
 
-create table `Position`(
-	PositionID int primary key auto_increment,
-    PositionName char(30)
+CREATE TABLE `Position` (
+    PositionID 		INT PRIMARY KEY AUTO_INCREMENT,
+    PositionName 	ENUM('Dev','Test', 'Scrum Master', 'PM')
 );
 
-create table `Account`(
-	AccountID int primary key auto_increment,
-    Email char(50),
-    Username char(20),
-    Fullname char(30),
-    DepartmentID int,
-    PositionID int,
-    CreateDate date
+CREATE TABLE `Account` (
+    AccountID 		INT PRIMARY KEY AUTO_INCREMENT,
+    Email 			CHAR(50),
+    Username 		CHAR(20),
+    Fullname 		CHAR(30),
+    DepartmentID 	INT,
+    PositionID 		INT,
+    CreateDate 		DATE
 );
 
-create table `Group`(
-	GroupID int primary key auto_increment,
-    GroupName char(30),
-    CreatorID int,
-    CreateDate date
+CREATE TABLE `Group` (
+    GroupID 		INT PRIMARY KEY AUTO_INCREMENT,
+    GroupName 		CHAR(30),
+    CreatorID 		INT,
+    CreateDate 		DATE
 );
 
-create table `GroupAccount`(
-	GroupID int primary key auto_increment,
-    AccountID int,
-    JoinDate date
+CREATE TABLE `GroupAccount` (
+    GroupID 		INT PRIMARY KEY AUTO_INCREMENT,
+    AccountID 		INT,
+    JoinDate 		DATE
 );
 
-create table `TypeQuestion`(
-	TypeID int primary key auto_increment,
-    TypeName char(25)
+CREATE TABLE `TypeQuestion` (
+    TypeID 			INT PRIMARY KEY AUTO_INCREMENT,
+    TypeName 		CHAR(25)
 );
 
-create table `CategoryQuestion`(
-	CategoryID int primary key auto_increment,
-    CategoryName char(30)
+CREATE TABLE `CategoryQuestion` (
+    CategoryID 		INT PRIMARY KEY AUTO_INCREMENT,
+    CategoryName 	CHAR(30)
 );
 
-create table `Question`(
-	QuestionID int primary key auto_increment,
-    Content varchar(200),
-    CategoryID int,
-    TypeID int,
-    CreatorID int,
-    CreateDate date
+CREATE TABLE `Question` (
+    QuestionID 		INT PRIMARY KEY AUTO_INCREMENT,
+    Content 		VARCHAR(200),
+    CategoryID 		INT,
+    TypeID 			INT,
+    CreatorID 		INT,
+    CreateDate 		DATE
 );
 
-create table `Answer`(
-	AnswerID int primary key auto_increment,
-    Content varchar(500),
-    QuestionID int,
-    isCorrect boolean
+CREATE TABLE `Answer` (
+    AnswerID 		INT PRIMARY KEY AUTO_INCREMENT,
+    Content 		VARCHAR(500),
+    QuestionID 		INT,
+    isCorrect 		BOOLEAN
 );
 
-create table `Exam`(
-	ExamID int primary key auto_increment,
-    `Code` int,
-    Title char(50),
-    CategoryID int,
-    Duration int,
-    CreatorID int,
-    CreateDate date
+CREATE TABLE `Exam` (
+    ExamID 		INT PRIMARY KEY AUTO_INCREMENT,
+    `Code` 		INT,
+    Title 		CHAR(50),
+    CategoryID 	INT,
+    Duration 	INT,
+    CreatorID 	INT,
+    CreateDate 	DATE
 );
 
-create table `ExamQuestion`(
-	ExamID int primary key auto_increment,
-    QuestionID int
+CREATE TABLE `ExamQuestion` (
+    ExamID 		INT PRIMARY KEY AUTO_INCREMENT,
+    QuestionID 	INT
 );
 
 
