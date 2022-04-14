@@ -1,8 +1,8 @@
 
 -- Tao database
-DROP DATABASE IF EXISTS Testing_System_Assignment_1;
-CREATE DATABASE Testing_System_Assignment_1;
-USE Testing_System_Assignment_1;
+DROP DATABASE IF EXISTS Testing_System_Assignment_2;
+CREATE DATABASE Testing_System_Assignment_2;
+USE Testing_System_Assignment_2;
 
 -- Tạo bảng Department
 CREATE TABLE `Department` (
